@@ -16,7 +16,7 @@ public class ProductController
 	@Autowired
 	private ProductService productService;
 	
-	@RequestMapping("dashboard")
+	@RequestMapping("/")
 	public String getProductDashboard(Model model)
 	{
 		List<Product> productList=productService.getList();
@@ -32,13 +32,13 @@ public class ProductController
 	public String saveProductRecord(Product product)
 	{
 		productService.saveRecord(product);
-		return "redirect:dashboard";
+		return "redirect:/";
 	}
 	@RequestMapping("delete-record")
 	public String deleteProductRecord(int pid)
 	{
 		productService.deleteRecord(pid);
-		return "redirect:dashboard";
+		return "redirect:/";
 	}
 	@RequestMapping("edit-record")
 	public String getEditProductview(int pid,Model model)
@@ -51,6 +51,6 @@ public class ProductController
 	public String updateProductRecord(Product product)
 	{
 		productService.updateRecord(product);
-		return "redirect:dashboard";
+		return "redirect:/";
 	}
 }
